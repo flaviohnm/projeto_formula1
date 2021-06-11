@@ -114,3 +114,17 @@ CREATE TABLE pitstop (
     FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
     FOREIGN KEY (id_piloto) REFERENCES pilotos (id_piloto)
 );
+
+/* SCRIPT CRIAÇÃO DA TABELA LAP TIME */
+
+CREATE TABLE laptime (
+    id_corrida INTEGER,
+    id_piloto INTEGER,
+    lap INTEGER,
+    posicao INTEGER,
+    tempo VARCHAR(50),
+    milisegundos INTEGER,
+    PRIMARY KEY (id_corrida, id_piloto, lap),
+    FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
+    FOREIGN KEY (id_piloto) REFERENCES pilotos (id_piloto)
+);
