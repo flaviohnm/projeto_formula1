@@ -98,4 +98,19 @@ CREATE TABLE resultados (
     FOREIGN KEY (id_piloto) REFERENCES pilotos (id_piloto),
     FOREIGN KEY (id_construtor) REFERENCES construtores (id_construtor),
     FOREIGN KEY (id_status) REFERENCES status (id_status)
-)
+);
+
+/* SCRIPT CRIAÇÃO DA TABELA PIT STOP */
+
+CREATE TABLE pitstop (
+    id_corrida INTEGER,
+    id_piloto INTEGER,
+    parada INTEGER,
+    volta INTEGER NOT NULL,
+    tempo TIME NOT NULL,
+    duracao VARCHAR(50),
+    milisegundos INTEGER,
+    PRIMARY KEY (id_corrida, id_piloto, parada),
+    FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
+    FOREIGN KEY (id_piloto) REFERENCES pilotos (id_piloto)
+);
