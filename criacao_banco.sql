@@ -129,6 +129,7 @@ CREATE TABLE laptime (
     FOREIGN KEY (id_piloto) REFERENCES pilotos (id_piloto)
 );
 
+/* SCRIPT CRIAÇÃO DA TABELA CAMPEONATO DE PILOTOS */
 CREATE TABLE campeonato_pilotos (
     id_campeonato_pilotos INTEGER,
     id_corrida INTEGER,
@@ -140,4 +141,18 @@ CREATE TABLE campeonato_pilotos (
     PRIMARY KEY (id_campeonato_pilotos),
     FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
     FOREIGN key (id_piloto) REFERENCES pilotos (id_piloto)
+);
+
+/* SCRIPT CRIAÇÃO DA TABELA CAMPEONATO DE CONSTRUTORES */
+CREATE TABLE campeonato_construtores (
+    id_campeonato_construtores INTEGER,
+    id_corrida INTEGER,
+    id_construtor INTEGER,
+    pontos FLOAT NOT NULL,
+    posicao INTEGER,
+    texto_posicao VARCHAR(50),
+    wins INTEGER NOT NULL,
+    PRIMARY KEY (id_campeonato_construtores),
+    FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
+    FOREIGN key (id_construtor) REFERENCES construtores (id_construtor)
 );
