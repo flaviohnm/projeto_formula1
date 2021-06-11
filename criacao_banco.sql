@@ -128,3 +128,16 @@ CREATE TABLE laptime (
     FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
     FOREIGN KEY (id_piloto) REFERENCES pilotos (id_piloto)
 );
+
+CREATE TABLE campeonato_pilotos (
+    id_campeonato_pilotos INTEGER,
+    id_corrida INTEGER,
+    id_piloto INTEGER,
+    pontos FLOAT NOT NULL,
+    posicao INTEGER,
+    texto_posicao VARCHAR(50),
+    wins INTEGER NOT NULL,
+    PRIMARY KEY (id_campeonato_pilotos),
+    FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
+    FOREIGN key (id_piloto) REFERENCES pilotos (id_piloto)
+);
