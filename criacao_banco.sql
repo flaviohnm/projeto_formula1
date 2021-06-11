@@ -156,3 +156,15 @@ CREATE TABLE campeonato_construtores (
     FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
     FOREIGN key (id_construtor) REFERENCES construtores (id_construtor)
 );
+
+/* SCRIPT CRIAÇÃO DA TABELA RESULTADO DOS CONSTRUTORES */
+CREATE TABLE resultado_construtores (
+    id_resultado_construtor INTEGER,
+    id_corrida INTEGER,
+    id_construtor INTEGER,
+    pontos FLOAT,
+    status VARCHAR(50),
+    PRIMARY KEY (id_resultado_construtor),
+    FOREIGN KEY (id_corrida) REFERENCES corridas (id_corrida),
+    FOREIGN KEY (id_construtor) REFERENCES construtores (id_construtor)
+);
