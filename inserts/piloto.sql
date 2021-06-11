@@ -587,7 +587,7 @@ INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_n
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (586,'piotti','\N','Luigi','Piotti','1913-10-27','Italian');
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (587,'ecclestone','\N','Bernie','Ecclestone','1930-10-28','British');
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (588,'taramazzo','\N','Luigi','Taramazzo','1932-05-05','Italian');
-#VALOR!
+INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (589,'chiron','null','Louis','Chiron',null,'Monegasque');
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (590,'lewis-evans','\N','Stuart','Lewis-Evans','1930-04-20','British');
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (591,'george_amick','\N','George','Amick','1924-10-24','American');
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (592,'reece','\N','Jimmy','Reece','1929-11-17','American');
