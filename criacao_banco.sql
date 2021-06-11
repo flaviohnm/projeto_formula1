@@ -119,8 +119,8 @@ CREATE TABLE pitstop (
 
 CREATE TABLE laptime (
     id_corrida INTEGER,
-    id_piloto INTEGER,
-    lap INTEGER,
+    id_piloto INTEGER NOT NULL,
+    lap INTEGER NOT NULL,
     posicao INTEGER,
     tempo VARCHAR(50),
     milisegundos INTEGER,
@@ -132,8 +132,8 @@ CREATE TABLE laptime (
 /* SCRIPT CRIAÇÃO DA TABELA CAMPEONATO DE PILOTOS */
 CREATE TABLE campeonato_pilotos (
     id_campeonato_pilotos INTEGER,
-    id_corrida INTEGER,
-    id_piloto INTEGER,
+    id_corrida INTEGER NOT NULL,
+    id_piloto INTEGER NOT NULL,
     pontos FLOAT NOT NULL,
     posicao INTEGER,
     texto_posicao VARCHAR(50),
@@ -146,8 +146,8 @@ CREATE TABLE campeonato_pilotos (
 /* SCRIPT CRIAÇÃO DA TABELA CAMPEONATO DE CONSTRUTORES */
 CREATE TABLE campeonato_construtores (
     id_campeonato_construtores INTEGER,
-    id_corrida INTEGER,
-    id_construtor INTEGER,
+    id_corrida INTEGER NOT NULL,
+    id_construtor INTEGER NOT NULL,
     pontos FLOAT NOT NULL,
     posicao INTEGER,
     texto_posicao VARCHAR(50),
@@ -160,8 +160,8 @@ CREATE TABLE campeonato_construtores (
 /* SCRIPT CRIAÇÃO DA TABELA RESULTADO DOS CONSTRUTORES */
 CREATE TABLE resultado_construtores (
     id_resultado_construtor INTEGER,
-    id_corrida INTEGER,
-    id_construtor INTEGER,
+    id_corrida INTEGER NOT NULL,
+    id_construtor INTEGER NOT NULL,
     pontos FLOAT,
     status VARCHAR(50),
     PRIMARY KEY (id_resultado_construtor),
