@@ -49,7 +49,7 @@ CREATE TABLE corridas (
     id_circuito INTEGER NOT NULL,
     nome_corrida VARCHAR(100) NOT NULL,
     data_corrida DATE NOT NULL,
-    tempo_corrida TIME,
+    horario_corrida TIME,
     PRIMARY KEY (id_corrida),
     FOREIGN KEY (ano_corrida) REFERENCES temporadas (ano),
     FOREIGN KEY (id_circuito) REFERENCES circuitos (id_circuito)
