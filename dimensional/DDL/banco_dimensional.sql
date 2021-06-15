@@ -44,13 +44,14 @@ CREATE TABLE dim_pilotos (
 );
 
 /* CRIAÇÃO DIMENSÃO TEMPO */
+
 CREATE TABLE dim_tempo (
-    id_tempo INTEGER PRIMARY KEY,
-    decada VARCHAR(10) NOT NULL,
-    ano VARCHAR(10) NOT NULL,
-    mes_do_ano VARCHAR(10) NOT NULL,
-    dia_do_mes VARCHAR(10) NOT NULL,
-    dia_do_ano VARCHAR(50) NOT NULL
+	id_tempo INTEGER PRIMARY KEY,
+	ano INTEGER NOT NULL,
+	mes_do_ano INTEGER NOT NULL,	
+	dia_do_mes INTEGER NOT NULL,
+	dia_do_ano INTEGER NOT NULL,	
+	decada INTEGER NOT NULL
 );
 
 /* CRIAÇÃO FATO RESULTADOS */
