@@ -1,6 +1,9 @@
 ALTER TABLE `FORMULA1`.`construtores` 
 ADD COLUMN `fabricante_motor` VARCHAR(45) NOT NULL AFTER `nacionalidade_construtor`;
 
+ALTER TABLE `formula1`.`construtores` 
+CHANGE COLUMN `fabricante_motor` `fabricante_motor` VARCHAR(45) NOT NULL AFTER `nome_construtor`;
+
 
 update construtores set fabricante_motor = 'Mercedes' WHERE id_construtor =1;
 update construtores set fabricante_motor = 'BMW Sauber' WHERE id_construtor =2;

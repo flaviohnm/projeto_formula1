@@ -851,3 +851,8 @@ INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_n
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (852,'tsunoda','TSU','Yuki','Tsunoda','2000-05-11','Japanese');		
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (853,'mazepin','MAZ','Nikita','Mazepin','1999-03-02','Russian');		
 INSERT INTO pilotos (id_piloto, ref_piloto, code_piloto, primeiro_nome, ultimo_nome, nascimento, nacionalidade_piloto) VALUES (854,'mick_schumacher','MSC','Mick','Schumacher','1999-03-22','German');		
+
+
+/*TRATAMENTO DE DADOS ANTES DE INSERIR OS DADOS DIMENSÃO_PILOTOS */
+update pilotos set nascimento = '1500-01-01' where nascimento IS NULL;
+update pilotos set code_piloto = '-1' where code_piloto IS NULL;

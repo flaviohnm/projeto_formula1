@@ -9,7 +9,8 @@ USE DW_F1;
 
 /* CRIAÇÃO DIMENSÃO CIRCUITOS */
 CREATE TABLE dim_circuitos (
-    id_circuito INTEGER PRIMARY KEY,
+    id_dim_circuito INTEGER PRIMARY KEY AUTO_INCREMENT,
+    code_circuito INTEGER NOT NULL,
     ref_circuito VARCHAR(100) NOT NULL,
     nome_circuito VARCHAR(100) NOT NULL,
     localizacao_circuito VARCHAR(100) NOT NULL,
@@ -18,23 +19,28 @@ CREATE TABLE dim_circuitos (
 
 /* CRIAÇÃO DIMENSÃO CORRIDAS */
 CREATE TABLE dim_corridas (
-    id_corrida INTEGER PRIMARY KEY,
+    id_dim_corrida INTEGER PRIMARY KEY AUTO_INCREMENT,
+    id_corrida INTEGER NOT NULL,
     nome_gp VARCHAR(50) NOT NULL,
     data_gp DATE NOT NULL,
     horario_gp TIME NOT NULL,
-    temporada VARCHAR(10) NOT NULL
+    temporada VARCHAR(10) NOT NULL,
+    rodada INTEGER NOT NULL
 );
 
 /* CRIAÇÃO DIMENSÃO CONSTRUTORES */
 CREATE TABLE dim_construtores (
-    id_construtor INTEGER PRIMARY KEY,
+    id_dim_construtor INTEGER PRIMARY KEY AUTO_INCREMENT,
+    code_construtor INTEGER PRIMARY KEY,
     nome_construtor VARCHAR(50) NOT NULL,
-    nacionalidade_construtor DATE NOT NULL
+    fabricante_motor VARCHAR(50) NOT NULL, 
+    nacionalidade_construtor VARCHAR(50) NOT NULL
 );
 
 /* CRIAÇÃO DIMENSÃO PILOTOS */
 CREATE TABLE dim_pilotos (
-    id_piloto INTEGER PRIMARY KEY,
+    id_dim_piloto INTEGER PRIMARY KEY AUTO_INCREMENT 
+    code_piloto INTEGER PRIMARY KEY,
     ref_piloto VARCHAR(50) NOT NULL,
     code_piloto VARCHAR(5) NOT NULL,
     primeiro_nome VARCHAR(50) NOT NULL,
@@ -46,22 +52,21 @@ CREATE TABLE dim_pilotos (
 /* CRIAÇÃO DIMENSÃO TEMPO */
 
 CREATE TABLE dim_tempo (
-	id_tempo INTEGER PRIMARY KEY,
-	ano INTEGER NOT NULL,
-	mes_do_ano INTEGER NOT NULL,	
+	id_dim_tempo INTEGER PRIMARY KEY AUTO_INCREMENT,
 	dia_do_mes INTEGER NOT NULL,
-	dia_do_ano INTEGER NOT NULL,	
-	decada INTEGER NOT NULL
+	mes_do_ano INTEGER NOT NULL,	
+	ano INTEGER NOT NULL,
+	dia_do_ano INTEGER NOT NULL,s
+    decada INTEGER NOT NULL
 );
 
 /* CRIAÇÃO FATO RESULTADOS */
 CREATE TABLE fato_resultados (
-    id_resultado INTEGER NOT NULL,
-    id_construtor INTEGER NOT NULL,
-    id_piloto INTEGER NOT NULL,
-    id_corrida INTEGER NOT NULL,
-    id_circuito INTEGER NOT NULL,
-    id_tempo INTEGER NOT NULL,
+    id_dim_construtor INTEGER NOT NULL,
+    id_dim_piloto INTEGER NOT NULL,
+    id_dim_corrida INTEGER NOT NULL,
+    id_dim_circuito INTEGER NOT NULL,
+    id_dim_tempo INTEGER NOT NULL,
     temporada VARCHAR(10) NOT NULL,
     pontos_ganhos INTEGER NOT NULL,
     qtd_voltas INTEGER NOT NULL,
@@ -70,9 +75,9 @@ CREATE TABLE fato_resultados (
     ranking INTEGER,
     tempo_de_prova VARCHAR(50),
     status VARCHAR(50) NOT NULL,
-    FOREIGN KEY (id_construtor) REFERENCES dim_construtores (id_construtor),
-    FOREIGN KEY (id_piloto) REFERENCES dim_pilotos (id_piloto),
-    FOREIGN KEY (id_circuito) REFERENCES dim_circuitos (id_circuito),
-    FOREIGN KEY (id_corrida) REFERENCES dim_corridas (id_corrida),
-    FOREIGN KEY (id_tempo) REFERENCES dim_tempo (id_tempo)
+    FOREIGN KEY (id_dim_construtor) REFERENCES dim_construtores (id_dim_construtor),
+    FOREIGN KEY (id_dim_piloto) REFERENCES dim_pilotos (id_dim_piloto),
+    FOREIGN KEY (id_dim_circuito) REFERENCES dim_circuitos (id_dim_circuito),
+    FOREIGN KEY (id_dim_corrida) REFERENCES dim_corridas (id_dim_corrida),
+    FOREIGN KEY (id_dim_tempo) REFERENCES dim_tempo (id_dim_tempo)
 );
