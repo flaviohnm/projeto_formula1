@@ -20,7 +20,7 @@ CREATE TABLE dim_circuitos (
 /* CRIAÇÃO DIMENSÃO CORRIDAS */
 CREATE TABLE dim_corridas (
     id_dim_corrida INTEGER PRIMARY KEY AUTO_INCREMENT,
-    id_corrida INTEGER NOT NULL,
+    code_corrida INTEGER NOT NULL,
     nome_gp VARCHAR(50) NOT NULL,
     data_gp DATE NOT NULL,
     horario_gp TIME NOT NULL,
@@ -57,7 +57,9 @@ CREATE TABLE dim_tempo (
 	mes_do_ano INTEGER NOT NULL,	
 	ano INTEGER NOT NULL,
 	dia_do_ano INTEGER NOT NULL,
-    decada INTEGER NOT NULL
+    semana_do_ano INTEGER NOT NULL,
+    nome_dia VARCHAR(10),
+    nome_mes VARCHAR(10)
 );
 
 /* CRIAÇÃO FATO RESULTADOS */
