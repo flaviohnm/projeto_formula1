@@ -31,7 +31,7 @@ CREATE TABLE dim_corridas (
 /* CRIAÇÃO DIMENSÃO CONSTRUTORES */
 CREATE TABLE dim_construtores (
     id_dim_construtor INTEGER PRIMARY KEY AUTO_INCREMENT,
-    code_construtor INTEGER PRIMARY KEY,
+    code_construtor INTEGER NOT NULL,
     nome_construtor VARCHAR(50) NOT NULL,
     fabricante_motor VARCHAR(50) NOT NULL, 
     nacionalidade_construtor VARCHAR(50) NOT NULL
@@ -42,7 +42,7 @@ CREATE TABLE dim_pilotos (
     id_dim_piloto INTEGER PRIMARY KEY AUTO_INCREMENT,
     code_piloto INTEGER NOT NULL,
     ref_piloto VARCHAR(50) NOT NULL,
-    code_piloto VARCHAR(5) NOT NULL,
+    abr_piloto VARCHAR(5) NOT NULL,
     primeiro_nome VARCHAR(50) NOT NULL,
     ultimo_nome VARCHAR(50) NOT NULL,
     nacionalidade VARCHAR(50) NOT NULL,
