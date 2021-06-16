@@ -39,8 +39,8 @@ CREATE TABLE dim_construtores (
 
 /* CRIAÇÃO DIMENSÃO PILOTOS */
 CREATE TABLE dim_pilotos (
-    id_dim_piloto INTEGER PRIMARY KEY AUTO_INCREMENT 
-    code_piloto INTEGER PRIMARY KEY,
+    id_dim_piloto INTEGER PRIMARY KEY AUTO_INCREMENT,
+    code_piloto INTEGER NOT NULL,
     ref_piloto VARCHAR(50) NOT NULL,
     code_piloto VARCHAR(5) NOT NULL,
     primeiro_nome VARCHAR(50) NOT NULL,
@@ -56,7 +56,7 @@ CREATE TABLE dim_tempo (
 	dia_do_mes INTEGER NOT NULL,
 	mes_do_ano INTEGER NOT NULL,	
 	ano INTEGER NOT NULL,
-	dia_do_ano INTEGER NOT NULL,s
+	dia_do_ano INTEGER NOT NULL,
     decada INTEGER NOT NULL
 );
 
