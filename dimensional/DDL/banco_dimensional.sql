@@ -21,6 +21,8 @@ CREATE TABLE dim_circuitos (
 CREATE TABLE dim_corridas (
     id_dim_corrida INTEGER PRIMARY KEY AUTO_INCREMENT,
     code_corrida INTEGER NOT NULL,
+    ref_circuito VARCHAR(100),
+    location_circuito VARCHAR(50),
     nome_gp VARCHAR(50) NOT NULL,
     data_gp DATE NOT NULL,
     horario_gp TIME NOT NULL,
@@ -53,6 +55,7 @@ CREATE TABLE dim_pilotos (
 
 CREATE TABLE dim_tempo (
 	id_dim_tempo INTEGER PRIMARY KEY AUTO_INCREMENT,
+    data_corrida DATE not NULL,
 	dia_do_mes INTEGER NOT NULL,
 	mes_do_ano INTEGER NOT NULL,	
 	ano INTEGER NOT NULL,
@@ -75,7 +78,9 @@ CREATE TABLE fato_resultados (
     grid INTEGER NOT NULL,
     ordem_posicao INTEGER NOT NULL,
     ranking INTEGER,
-    tempo_de_prova VARCHAR(50),
+    volta_rapida INTEGER,
+    tempo_de_volta VARCHAR(50),
+    tempo_volta_rapida VARCHAR(50),
     status VARCHAR(50) NOT NULL,
     FOREIGN KEY (id_dim_construtor) REFERENCES dim_construtores (id_dim_construtor),
     FOREIGN KEY (id_dim_piloto) REFERENCES dim_pilotos (id_dim_piloto),
