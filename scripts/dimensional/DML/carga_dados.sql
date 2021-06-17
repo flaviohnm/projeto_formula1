@@ -1,8 +1,8 @@
 USE formula1;
 /* CARGA DE DADOS DIM_CIRCUITOS */
 
-INSERT INTO dw_f1.dim_circuitos (code_circuito, ref_circuito, nome_circuito, localizacao_circuito, pais_circuito)
-SELECT id_circuito, ref_circuito, nome_circuito, location_circuito, pais_circuito
+INSERT INTO dw_f1.dim_circuitos (code_circuito, ref_circuito, nome_circuito, localizacao_circuito, pais_circuito, lat, lng)
+SELECT id_circuito, ref_circuito, nome_circuito, location_circuito, pais_circuito, lat, lng
 FROM formula1.circuitos;
 
 /*SCRIPT PARA POPULAR A TABELA_DIMENSÃO_PILOTOS*/
@@ -27,10 +27,7 @@ SELECT data_corrida, day(data_corrida), month(data_corrida), year(data_corrida),
 FROM formula1.corridas;
 
 /* CARGA DA TABELA FATO */ 
-
-
-/* CARGA DA TABELA FATO */ 
-INSERT INTO fato_resultados (id_dim_construtor, id_dim_piloto, id_dim_corrida, id_dim_circuito, id_dim_tempo,
+INSERT INTO dw_f1.fato_resultados (id_dim_construtor, id_dim_piloto, id_dim_corrida, id_dim_circuito, id_dim_tempo,
 							 temporada, pontos_ganhos, qtd_voltas, grid, ordem_posicao, ranking, volta_rapida,
                              tempo_de_volta, tempo_volta_rapida, status)
 select con.id_dim_construtor, pil.id_dim_piloto, cor.id_dim_corrida, cir.id_dim_circuito, tmp.id_dim_tempo, cor.temporada, pontos, voltas, grid, ordem_posicao,
@@ -41,5 +38,4 @@ inner join dw_f1.dim_pilotos pil on r1.id_piloto = pil.code_piloto
 inner join dw_f1.dim_corridas cor on r1.id_corrida = cor.code_corrida
 inner join dw_f1.dim_circuitos cir on cor.ref_circuito = cir.ref_circuito
 inner join dw_f1.dim_tempo tmp on cor.data_gp = tmp.data_corrida
-inner join formula1.status s1 on r1.id_status = s1.id_status
-;
+inner join formula1.status s1 on r1.id_status = s1.id_status;

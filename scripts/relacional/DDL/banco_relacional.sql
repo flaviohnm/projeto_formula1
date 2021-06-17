@@ -33,8 +33,14 @@ CREATE TABLE circuitos (
     ref_circuito VARCHAR (100) NOT NULL,
     nome_circuito VARCHAR (100) NOT NULL,
     location_circuito VARCHAR (100) NOT NULL,
-    pais_circuito VARCHAR (50)
+    pais_circuito VARCHAR (50),
+    lat VARCHAR NOT NULL (50),
+    lng VARCHAR NOT NULL (50)
 );
+
+/* INCLUSÃO DAS COLUNAS LATITUDE E LONOGETUDE */
+ALTER TABLE circuitos ADD lat varchar(50);
+ALTER TABLE circuitos ADD lng varchar(50); 
 
 /* SCRIPT CRIAÇÃO DA TABELA CIRCUITO */
 CREATE TABLE status (

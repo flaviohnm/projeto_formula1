@@ -14,7 +14,9 @@ CREATE TABLE dim_circuitos (
     ref_circuito VARCHAR(100) NOT NULL,
     nome_circuito VARCHAR(100) NOT NULL,
     localizacao_circuito VARCHAR(100) NOT NULL,
-    pais_circuito varchar (50) NOT NULL
+    pais_circuito varchar (50) NOT NULL,
+    lat VARCHAR (50),
+    lng VARCHAR (50)
 );
 
 /* CRIAÇÃO DIMENSÃO CORRIDAS */
